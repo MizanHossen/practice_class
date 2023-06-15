@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:practice_class/class_10/animated_page_view.dart';
 import 'package:practice_class/class_11/class_11.dart';
+import 'package:practice_class/class_12/bottom_bar_controller.dart';
+import 'package:practice_class/class_12/dashboard.dart';
+import 'package:practice_class/class_12/home.dart';
+import 'package:practice_class/class_14/class_14.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Class11(),
+      home: Class14(),
     );
   }
 }
