@@ -1,13 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:practice_class/class_10/animated_page_view.dart';
-import 'package:practice_class/class_11/class_11.dart';
-import 'package:practice_class/class_12/bottom_bar_controller.dart';
-import 'package:practice_class/class_12/dashboard.dart';
-import 'package:practice_class/class_12/home.dart';
-import 'package:practice_class/class_14/class_14.dart';
-import 'package:practice_class/class_15/class_15.dart';
 
-void main() {
+import 'package:practice_class/class_21/class_21.dart';
+import 'package:practice_class/controller/count_num_provider.dart';
+import 'package:provider/provider.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -19,14 +21,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CountNumberProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+          useMaterial3: true,
+        ),
+        home: Class21(),
       ),
-      home: Class15(),
     );
   }
 }
